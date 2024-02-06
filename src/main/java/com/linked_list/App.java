@@ -1,4 +1,4 @@
-package demo;
+package com.linked_list;
 
 /**
  * Hello world!
