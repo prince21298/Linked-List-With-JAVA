@@ -13,6 +13,7 @@ public class CustomLinkedList {
             this.value = value;
         }
 
+        @SuppressWarnings("unused")
         public Node(Node next) {
             this.next = next;
         }
@@ -30,10 +31,11 @@ public class CustomLinkedList {
                     " }";
         }
     }
-    public Node getNodeFromValue(int value){
+
+    public Node getNodeFromValue(int value) {
         Node node = head;
-        while (node!= null){
-            if(node.next.value == value){
+        while (node != null) {
+            if (node.next.value == value) {
                 return node;
             }
             node = node.next;
@@ -70,7 +72,7 @@ public class CustomLinkedList {
         if (size <= 1) {
             return deleteFirst();
         }
-        Node secondLast = get(size-2);
+        Node secondLast = get(size - 2);
         int value = tail.value;
         tail = secondLast;
         tail.next = null;
@@ -81,11 +83,10 @@ public class CustomLinkedList {
     public int deleteFromIndex(int index) {
         if (size <= 1) {
             return deleteFirst();
-        }
-        else if (index == size-1 ){
+        } else if (index == size - 1) {
             return deleteLast();
         }
-        Node previousNode = get(index-1);
+        Node previousNode = get(index - 1);
         int value = previousNode.next.value;
         previousNode.next = previousNode.next.next;
         return value;
@@ -111,7 +112,6 @@ public class CustomLinkedList {
         size++;
 
     }
-
 
     public void insertOnIndex(int val, int index) {
         if (index == 0) {
@@ -149,6 +149,7 @@ public class CustomLinkedList {
         boolean swapped;
         do {
             swapped = false;
+            @SuppressWarnings("unused")
             Node prev = null;
             Node current = head;
             Node nextNode = current.next;
@@ -174,6 +175,7 @@ public class CustomLinkedList {
         boolean swapped;
         do {
             swapped = false;
+            @SuppressWarnings("unused")
             Node prev = null;
             Node current = head;
             Node nextNode = current.next;
@@ -192,8 +194,6 @@ public class CustomLinkedList {
         } while (swapped);
     }
 
-
-
     public void Display() {
         Node temp = head;
         while (temp != null) {
@@ -201,6 +201,18 @@ public class CustomLinkedList {
             temp = temp.next;
         }
         System.out.println("End Here.....");
+    }
 
+    public void ReverseDisplay() {
+        Node prev = null;
+        Node current = head;
+        Node nextNode;
+        while (current != null) {
+            nextNode = current.next;
+            current.next = prev;
+            prev = current;
+            current = nextNode;
+        }
+        head = prev;
     }
 }
