@@ -5,6 +5,10 @@ public class CustomLinkedList {
     private Node tail;
     private int size;
 
+    public int size() {
+        return size;
+    }
+
     private static class Node {
         private int value;
         private Node next;
@@ -30,12 +34,15 @@ public class CustomLinkedList {
                     ", next : " + next +
                     " }";
         }
-    }
 
+    }
+    public int getData(Node node) {
+        return node.value;
+    }
     public Node getNodeFromValue(int value) {
         Node node = head;
         while (node != null) {
-            if (node.next.value == value) {
+            if (node.value == value) {
                 return node;
             }
             node = node.next;
